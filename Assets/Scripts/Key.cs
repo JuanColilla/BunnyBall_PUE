@@ -12,9 +12,11 @@ public class Key : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) {
-            Instantiate(shockwavePrefab, transform.position, Quaternion.identity);
-            gameManager.UpdateLevel();
-            Destroy(gameObject, 0.1f);
+            GameObject.Find("LevelManager").GetComponent<LevelManager>().CreateNextLevel();
+
+            //Instantiate(shockwavePrefab, transform.position, Quaternion.identity);
+            //gameManager.UpdateLevel();
+            //Destroy(gameObject, 0.1f);
         }
     }
 }
